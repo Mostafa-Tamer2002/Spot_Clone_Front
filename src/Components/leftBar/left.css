@@ -1,0 +1,172 @@
+/* !Fonts */
+@font-face {
+  font-family: "robBold";
+  src: url(/src/assets/Fonts/Roboto/Roboto-Bold.ttf);
+}
+
+:root {
+  --BackGroundMenu: rgba(34, 34, 34, 0.6);
+}
+/* !Global Content */
+.leftMenu {
+  --MenuPadding: 1rem 1rem;
+  margin-top: -18px;
+}
+.menu_Container {
+  max-width: 20rem;
+  min-height: 100vh;
+  background-color: var(--BackGroundMenu);
+  padding: var(--MenuPadding);
+}
+/* !Main */
+/* .logoCotainer {
+  display: grid;
+  place-items: center;
+} */
+.logoCotainer .Logo {
+  max-width: 10rem;
+}
+/* ?----Search Menu---- */
+.searchBar {
+  color: gray;
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.6em;
+  box-shadow: 0em 0em 3em rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+.searchBar i {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 2.8em;
+  width: 2rem;
+  height: 2rem;
+}
+.searchBar input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  background-color: black;
+  padding-left: 2rem;
+  border: none;
+  color: white;
+}
+
+/* ?----Menu LIst---- */
+.menu_List {
+  margin-top: 1.5em;
+  color: #848484;
+}
+
+.menu_List p {
+  margin-bottom: 1em;
+  color: #848484;
+  font-family: "robBold";
+  font-size: 1.5rem;
+}
+/* Menu Text Animation */
+p {
+  --border-radius: 15px;
+  --border-width: 4px;
+  appearance: none;
+  position: relative;
+  padding: 1em 0.5em;
+  border: 0;
+  background-color: #212121;
+  font-family: "Roboto", Arial, "Segoe UI", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  z-index: 2;
+}
+
+p::after {
+  --m-i: linear-gradient(#000, #000);
+  --m-o: content-box, padding-box;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--border-width);
+  border-radius: var(--border-radius);
+  background-image: conic-gradient(
+    #488cfb,
+    #29dbbc,
+    #ddf505,
+    #ff9f0e,
+    #e440bb,
+    #655adc,
+    #488cfb
+  );
+  -webkit-mask-image: var(--m-i), var(--m-i);
+  mask-image: var(--m-i), var(--m-i);
+  -webkit-mask-origin: var(--m-o);
+  mask-origin: var(--m-o);
+  mask-clip: var(--m-o);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  filter: hue-rotate(0);
+  animation: rotate-hue linear 500ms infinite;
+}
+
+@keyframes rotate-hue {
+  to {
+    filter: hue-rotate(1turn);
+  }
+}
+
+p,
+p::after {
+  box-sizing: border-box;
+}
+
+
+
+/* Start Meny List */
+.menu_List > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.menu_List > ul li {
+  position: relative;
+}
+
+.menu_List > ul li a {
+  color: #848484;
+  display: flex;
+  gap: 0.6em;
+  cursor: pointer;
+  font-family: "robBold";
+  padding: 0.5em 0;
+}
+
+/* Befor Animation */
+.menu_List ul li::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -15px;
+  width: 0px;
+  height: 100%;
+  background: #49e12e;
+  border-radius: 5px;
+}
+
+.menu_List ul li:hover a,
+.menu_List ul li.active a {
+  color: #f1f1f1;
+  transition: 0.3s;
+}
+
+.menu_List ul li:hover::before,
+.menu_List ul li.active::before {
+  width: 5px;
+  transition: width 0.5s;
+}

@@ -1,0 +1,28 @@
+/* ! Imports */
+/* @font-face {
+  font-family: ;
+  src: url();
+} */
+
+/* ! Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: black;
+}
+
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+}
+/* ! Global Content */
+/* :root{} */
+/* ! Media Query */
