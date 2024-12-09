@@ -24,9 +24,17 @@ export default function Left() {
 
         {/*-----Logo-----*/}
         <div className="logoCotainer">
-          <img className="Logo" src="/public/Images/main_logo.png" alt="Logo" />
+          {/* Dynamically change the logo based on the sidebar state */}
+          <img
+            className="Logo"
+            src={
+              isCollapsed
+                ? "/public/Images/Collased logo.png" // Logo for collapsed sidebar
+                : "/public/Images/main_logo.png"  // Logo for expanded sidebar
+            }
+            alt="Logo"
+          />
         </div>
-
         {/*-----Search Bar-----*/}
         {!isCollapsed && <Searchbar />}
 

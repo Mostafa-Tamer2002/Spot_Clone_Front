@@ -3,12 +3,12 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
+  max-width: 100%;
 }
 
 .search-input {
   width: 100%;
-  padding: 12px 16px 12px 40px; 
+  padding: 12px 16px 12px 40px;
   border-radius: 12px;
   border: 2px solid #444;
   outline: none;
@@ -26,8 +26,10 @@
 }
 
 .search-input:focus {
-  border-color: #29dbbc;
-  box-shadow: 0 4px 10px rgba(41, 219, 188, 0.5);
+  border-color: rgba(30, 215, 96, 0.8);
+  box-shadow: 0 4px 6px rgba(30, 215, 96, 0.4),
+              0 8px 20px rgba(30, 215, 96, 0.3), 
+              0 20px 100px rgba(30, 215, 96, 0.2);
 }
 
 /* Search Icon */
@@ -36,7 +38,7 @@
   left: 12px;
   font-size: 18px;
   color: #777;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 /* Filtered Song List */

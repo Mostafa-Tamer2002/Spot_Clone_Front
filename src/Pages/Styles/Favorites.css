@@ -2,8 +2,9 @@
 .favorites-container {
   background-color: #121212;
   color: #fff;
+  margin-top: -1em;
   min-height: 100vh;
-  padding: 20px;
+  padding-inline: 2em;
   font-family: "Roboto", sans-serif;
 }
 
@@ -11,14 +12,15 @@
 .favorites-header {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 30px;
+  gap: 2em;
+  margin-top: 2em;
+  margin-bottom: 2rem;
 }
 
 .favorites-header-icon {
   background-color: #1db954;
-  width: 80px;
-  height: 80px;
+  width: 3em;
+  height: 2.5em;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -106,7 +108,7 @@
 }
 
 .favorites-header-icon .fa-heart {
-  font-size: 36px;
+  font-size: 3rem;
 }
 
 /* Hover Effects */
