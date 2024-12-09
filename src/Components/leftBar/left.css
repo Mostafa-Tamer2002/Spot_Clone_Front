@@ -4,25 +4,33 @@
   src: url(/src/assets/Fonts/Roboto/Roboto-Bold.ttf);
 }
 
+/* !Global Content  */
 :root {
   --BackGroundMenu: rgba(34, 34, 34, 0.6);
 }
-/* !Global Content */
+
+/* !Body Content */
 .leftMenu {
   --MenuPadding: 1rem 1rem;
   margin-top: -18px;
+  position: relative;
 }
+
 .menu_Container {
   max-width: 20rem;
   min-height: 100vh;
   background-color: var(--BackGroundMenu);
   padding: var(--MenuPadding);
+  transition: max-width 0.5s ease;
 }
-/* !Main */
 
+/* !Main */
+/* Logo Section */
 .logoCotainer .Logo {
   max-width: 10rem;
+  transition: max-width 0.5s ease;
 }
+
 /* ?----Search Menu---- */
 .searchBar {
   color: gray;
@@ -56,32 +64,28 @@
 /* ?----Menu LIst---- */
 .menu_List {
   margin-top: 1.5em;
-  color: #848484;
+  overflow: hidden;
+  transition: opacity 0.5s ease, margin-top 0.5s ease;
 }
-
 /* Menu Text label*/
-.menu_List p {
-  margin-bottom: 1em;
-  color: #848484;
-  font-family: "robBold";
-  font-size: 1.5rem;
-}
 
 /* Menu Text label Animation */
 .menu_List > p {
   --border-radius: 15px;
   --border-width: 4px;
+  color: #fff;
+  background-color: #212121;
+  font-family: "robBold";
+  font-size: clamp(1rem, 1vw, 2rem); /* Adjust the sizes as needed */
+  margin-bottom: 1.5em;
+  border: 0;
   border-radius: var(--border-radius);
+
   appearance: none;
   position: relative;
   padding: 1em 0.5em;
-  border: 0;
-  background-color: #212121;
-  font-family: "Roboto", Arial, "Segoe UI", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
   z-index: 2;
+  transition: all 0.5s ease;
 }
 
 .menu_List > p::after {
@@ -121,10 +125,9 @@
   }
 }
 
-.menu_List > p,
-.menu_List > p::after {
+/* .menu_List > p::after {
   box-sizing: border-box;
-}
+} */
 
 /* Start Menu List pages */
 .menu_List > ul {
@@ -141,12 +144,11 @@
   display: flex;
   gap: 0.6em;
   cursor: pointer;
+  transition: font-size 0.3s ease, justify-content 0.3s ease;
 }
-.menu_List > ul li .linkColor{
+.menu_List > ul li .linkColor {
   color: #848484;
-
 }
-
 
 /* Before Animation */
 .menu_List ul li::before {
@@ -170,4 +172,65 @@
 .menu_List ul li.active::before {
   width: 5px;
   transition: width 0.5s;
+}
+
+/*? Toggle Button */
+.toggleSection {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.5;
+  gap: 5rem;
+}
+.toggleSection > p {
+  color: white;
+  font-family: "robBold";
+  transition: all 0.3s ease;
+}
+.toggleButton {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  background-color: #212121;
+  font-size: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: -0px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.leftMenu.collapsed {
+  width: 5rem;
+}
+
+.leftMenu.collapsed .toggleButton {
+  transform: rotate(-90deg);
+  left: 15%;
+}
+
+.leftMenu.collapsed .menu_List > ul li {
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.leftMenu.collapsed .logoCotainer .Logo {
+  justify-content: center;
+  max-width: 4rem;
+  margin-top: 4rem;
+}
+.leftMenu.collapsed .menu_List > ul li .linkColor,
+.leftMenu.collapsed .toggleSection > p {
+  display: none;
+}
+.leftMenu.collapsed .menu_List > p {
+  font-size: 0.85rem;
 }

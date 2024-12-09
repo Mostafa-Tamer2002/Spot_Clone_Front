@@ -7,8 +7,9 @@ export default function App() {
   return (
     <Router>
       <div className="app">
+        {/* Sidebar*/}
         <div className="sidebar-container">
-          <Left /> {/* Sidebar*/}
+          <Left />
         </div>
 
         <div className="main-content">
