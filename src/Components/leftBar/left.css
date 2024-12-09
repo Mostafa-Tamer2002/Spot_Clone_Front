@@ -19,10 +19,7 @@
   padding: var(--MenuPadding);
 }
 /* !Main */
-/* .logoCotainer {
-  display: grid;
-  place-items: center;
-} */
+
 .logoCotainer .Logo {
   max-width: 10rem;
 }
@@ -62,16 +59,19 @@
   color: #848484;
 }
 
+/* Menu Text label*/
 .menu_List p {
   margin-bottom: 1em;
   color: #848484;
   font-family: "robBold";
   font-size: 1.5rem;
 }
-/* Menu Text Animation */
-p {
+
+/* Menu Text label Animation */
+.menu_List > p {
   --border-radius: 15px;
   --border-width: 4px;
+  border-radius: var(--border-radius);
   appearance: none;
   position: relative;
   padding: 1em 0.5em;
@@ -84,7 +84,7 @@ p {
   z-index: 2;
 }
 
-p::after {
+.menu_List > p::after {
   --m-i: linear-gradient(#000, #000);
   --m-o: content-box, padding-box;
   content: "";
@@ -121,33 +121,34 @@ p::after {
   }
 }
 
-p,
-p::after {
+.menu_List > p,
+.menu_List > p::after {
   box-sizing: border-box;
 }
 
-
-
-/* Start Meny List */
+/* Start Menu List pages */
 .menu_List > ul {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
 }
 .menu_List > ul li {
-  position: relative;
-}
-
-.menu_List > ul li a {
   color: #848484;
+  font-family: "robBold";
+  padding: 0.5em 0;
+
+  position: relative;
   display: flex;
   gap: 0.6em;
   cursor: pointer;
-  font-family: "robBold";
-  padding: 0.5em 0;
+}
+.menu_List > ul li .linkColor{
+  color: #848484;
+
 }
 
-/* Befor Animation */
+
+/* Before Animation */
 .menu_List ul li::before {
   position: absolute;
   content: "";

@@ -1,1 +1,24 @@
+/* Global layout */
+.app {
+  display: flex;
+  /* height: 100vh; */
+}
+
+/* Sidebar container */
+/* .sidebar-container {
+  width: 250px; 
+  background-color: #212121;
+  flex-shrink: 0; 
+} */
+
+/* Main content area */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* background-color: #f0f0f0; */
+  overflow-y: auto;
+}
+
 

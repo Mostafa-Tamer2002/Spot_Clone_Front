@@ -1,7 +1,24 @@
-import Left from './src/Components/leftBar/Left'
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Left from "./src/Components/leftBar/Left";
+import Favorites from "./src/Pages/Favorites"; // Your favorites page
+import Home from "./src/Pages/Home"; //  Home page
+import "./src/App.css";
 export default function App() {
   return (
-    <Left />
-  )
+    <Router>
+      <div className="app">
+        <div className="sidebar-container">
+          <Left /> {/* Sidebar*/}
+        </div>
+
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} /> {/* Home Page */}
+            <Route path="/favorites" element={<Favorites />} />{" "}
+            {/* Favorites Page */}
+          </Routes>
+        </div>
+      </div>
+    </Router>
+  );
 }
