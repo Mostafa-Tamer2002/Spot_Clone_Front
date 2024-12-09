@@ -98,7 +98,9 @@ const PlayerbarcontextProvider = ({ children }) => {
       if (audioRef.current) {
         const currentTime = audioRef.current.currentTime;
         const duration = audioRef.current.duration;
-
+        audioRef.current.onended = () => {
+          next();
+        };
         // Update the progress bar width based on the current time
         seekBar.current.style.width =
           Math.floor((currentTime / duration) * 100) + "%";
@@ -130,9 +132,12 @@ const PlayerbarcontextProvider = ({ children }) => {
     return () => {
       if (audioRef.current) {
         audioRef.current.ontimeupdate = null; // Cleanup the event handler
+        return () => {
+          audioRef.current.onended = null;
+        };
       }
     };
-  }, [audioRef]); // Runs every time audioRef changes
+  }, [audioRef, next]); // Runs every time audioRef changes
 
   const contextValue = {
     audioRef,
