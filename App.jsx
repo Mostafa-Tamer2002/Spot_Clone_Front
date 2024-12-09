@@ -3,7 +3,13 @@ import Left from "./src/Components/leftBar/Left";
 import Favorites from "./src/Pages/Favorites"; // Your favorites page
 import Home from "./src/Pages/Home"; //  Home page
 import "./src/App.css";
+
+import { useContext } from "react";
+import Playerbar from "./src/Components/Playerbar";
+import { Playerbarcontext } from "./src/Context/Playerbarcontext";
+
 export default function App() {
+  const { audioRef, track } = useContext(Playerbarcontext);
   return (
     <Router>
       <div className="app">
@@ -19,6 +25,8 @@ export default function App() {
             {/* Favorites Page */}
           </Routes>
         </div>
+        <Playerbar />
+        <audio ref={audioRef} src={track.file} preload="auto"></audio>
       </div>
     </Router>
   );
