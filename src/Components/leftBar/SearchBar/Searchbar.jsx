@@ -1,18 +1,15 @@
 import { useState } from "react";
 import "./Search.css";
+import { songsData } from "../../../assets/JS/assets";
+import { useContext } from "react";
+import { Playerbarcontext } from "../../../Context/Playerbarcontext";
 
 const SearchBar = () => {
-  const musicList = [
-    { id: 1, title: "Song A", artist: "Artist A" },
-    { id: 2, title: "Song B", artist: "Artist B" },
-    { id: 3, title: "Song C", artist: "Artist C" },
-  ];
-
+  const { playWithId } = useContext(Playerbarcontext);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredSongs = musicList.filter(
+  const filteredSongs = songsData.filter(
     (song) =>
-      song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      song.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       song.artist.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -39,8 +36,8 @@ const SearchBar = () => {
       {searchTerm.trim() && filteredSongs.length > 0 && (
         <ul className="song-list">
           {filteredSongs.map((song) => (
-            <li key={song.id}>
-              {song.title} by {song.artist}
+            <li onClick={() => playWithId(song.id)} key={song.id}>
+             {song.name} by {song.artist}
             </li>
           ))}
         </ul>

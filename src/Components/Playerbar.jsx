@@ -20,7 +20,7 @@ const Playerbar = () => {
   } = useContext(Playerbarcontext);
 
   return (
-    <div className="absolute bottom-0 left-0 w-full h-[10%] bg-black flex justify-between items-center text-white px-4">
+    <div className="fixed bottom-0 left-0 w-full h-[10%] bg-black flex justify-between items-center text-white px-4">
       {/* Left Section */}
       <div className="hidden lg:flex items-center gap-4">
         <img className="w-12" src={track.image} alt="Song Image" />

@@ -12,13 +12,13 @@
 /* !Body Content */
 .leftMenu {
   --MenuPadding: 1rem 1rem;
-  margin-top: -18px;
-  position: relative;
 }
 
 .menu_Container {
   max-width: 20rem;
   min-height: 100vh;
+  position: relative;
+
   background-color: var(--BackGroundMenu);
   padding: var(--MenuPadding);
   transition: max-width 0.5s ease;
@@ -51,7 +51,7 @@
   color: #fff;
   background-color: #212121;
   font-family: "robBold";
-  font-size: clamp(1rem, 1vw, 2rem); /* Adjust the sizes as needed */
+  font-size: 1.3rem; /* Adjust the sizes as needed */
   margin-bottom: 1.5em;
   border: 0;
   border-radius: var(--border-radius);
@@ -189,6 +189,9 @@
 .leftMenu.collapsed {
   width: 5rem;
 }
+.leftMenu.collapsed .menu_Container {
+  position: fixed;
+}
 
 .leftMenu.collapsed .toggleButton {
   transform: rotate(-90deg);
@@ -206,9 +209,10 @@
   margin-top: 4rem;
 }
 .leftMenu.collapsed .menu_List > ul li .linkColor,
+.leftMenu.collapsed .menu_List > ul li .nav-link,
 .leftMenu.collapsed .toggleSection > p {
   display: none;
 }
 .leftMenu.collapsed .menu_List > p {
-  font-size: 0.85rem;
+  font-size: 1.1rem;
 }

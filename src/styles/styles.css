@@ -1,4 +1,10 @@
-/* General Styles */
+/* !Import */
+@font-face {
+  font-family: "robotoB";
+  src: url(../assets/Fonts/Roboto/Roboto-BlackItalic.ttf);
+}
+
+/* !General Styles */
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -38,11 +44,11 @@ ul {
   overflow-y: auto;
 }
 
-.main {
+/* .main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
+} */
 
 .right {
   grid-area: right;
@@ -199,6 +205,13 @@ ul {
 
 .navigation-section a:hover {
   color: #fff;
+}
+
+div > h3{
+  font-family: 'robotoB', Times, serif;
+  font-size: 1.5rem;
+  margin-block: 1rem;
+  margin-left: 0.5em;
 }
 
 .playlist-section h1 {
@@ -1023,3 +1036,6 @@ hr {
   background-color: #fff;
   color: #000;
 }
+
+
+

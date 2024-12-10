@@ -1,6 +1,10 @@
-import React from 'react';
+import { useContext } from 'react';
+import { Playerbarcontext } from '../Context/Playerbarcontext';
+import { songsData } from "../assets/JS/assets";
+
 
 const Songs = ({ num, image, name, albumName, date, duration }) => {
+  const {playWithId} = useContext(Playerbarcontext);
   return (
     <div className="song-row">
       <p>{num}</p>
@@ -13,7 +17,7 @@ const Songs = ({ num, image, name, albumName, date, duration }) => {
       </div>
       <p>{date}</p>
       <p>{duration}</p>
-      <button className="play-btn">Play</button>
+      <button onClick={()=> playWithId(songsData[1])}   className="play-btn">Play</button>
     </div>
   );
 };

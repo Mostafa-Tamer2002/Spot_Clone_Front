@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import songs from "../data/songs";
+import { songsData } from "../assets/JS/assets";
+import { useContext } from "react";
+import { Playerbarcontext } from "../Context/Playerbarcontext";
 
 const albums = [
   { id: 1, name: "Hybrid Theory", image: "/Images/global.png" },
@@ -9,6 +12,7 @@ const albums = [
 
 const Home = ({ onSongSelect, onLike }) => {
   const navigate = useNavigate();
+  const { playWithId } = useContext(Playerbarcontext);
 
   return (
     <div>
@@ -35,18 +39,22 @@ const Home = ({ onSongSelect, onLike }) => {
       {/* Song Cards */}
       <div>
         <h3>Songs</h3>
-        <div className="row">
-          {songs.map((song) => (
-            <div key={song.id} className="card">
-              <img src={song.cover} alt={song.title} />
-              <h3>{song.title}</h3>
-              <p>{song.artist}</p>
+        <div className="row | pb-40">
+          {songsData.map((songsData) => (
+            <div key={songsData.id} className="card">
+              <img
+                onClick={() => playWithId(songsData.id)}
+                src={songsData.image}
+                alt={songsData.title}
+              />
+              <h3>{songsData.name}</h3>
+              <p>{songsData.artist}</p>
               <div className="card-actions">
-                <button className="play-btn" onClick={() => onSongSelect(song)}>
-                  Play
-                </button>
-                <button onClick={() => onLike(song)} className="favorite-btn">
-                  ❤️
+                <button className="favorite-btn">
+                  <i
+                    onClick={() => onLike(songsData)}
+                    className="fa-regular fa-heart | text-green-700"
+                  ></i>
                 </button>
               </div>
             </div>

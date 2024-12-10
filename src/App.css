@@ -5,12 +5,9 @@
 }
 
 /* Main content area */
-.main-content {
-  margin-top: -1em;
-  flex-grow: 1;
+.main {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  max-height: 100vh;
-
+  flex-grow: 1; 
 }
+

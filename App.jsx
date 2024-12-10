@@ -47,7 +47,6 @@ export default function App() {
         </div>
 
 
-        {/* <Sidebar likedSongsCount={likedSongs.length} /> */}
         <div className="main">
         <Navbar />
         <Routes>
@@ -55,10 +54,14 @@ export default function App() {
             path="/"
             element={<Home onSongSelect={handleSongSelect} onLike={handleLikeSong} />}
           />
+
+
           <Route
             path="/search"
             element={<Search onSongSelect={handleSongSelect} onLike={handleLikeSong} />}
           />
+
+
           <Route
             path="/liked-songs"
             element={
@@ -77,7 +80,7 @@ export default function App() {
 
 
         {/* Main Player Bar */}
-        {/* <Playerbar /> */}
+        <Playerbar />
         <audio ref={audioRef} src={track.file} preload="auto"></audio>
       </div>
     </Router>

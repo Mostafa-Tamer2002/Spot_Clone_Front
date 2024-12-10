@@ -3,8 +3,7 @@ import "./left.css";
 import Ade from "../leftBar/Ad/Ade";
 import Searchbar from "./SearchBar/Searchbar";
 import { Link } from "react-router-dom";
-import { NavLink } from 'react-router-dom';
-
+import { NavLink } from "react-router-dom";
 
 export default function Left({ likedSongsCount }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -14,7 +13,7 @@ export default function Left({ likedSongsCount }) {
   };
 
   return (
-    <section className={`leftMenu ${isCollapsed ? "collapsed" : ""}`}>
+    <aside className={`leftMenu ${isCollapsed ? "collapsed" : ""}`}>
       <div className="menu_Container">
         {/*----- Toggle Button -----*/}
         <div className="toggleSection">
@@ -52,9 +51,15 @@ export default function Left({ likedSongsCount }) {
             </li>
             <li>
               <i className="fa-solid fa-heart"></i>
-              <NavLink to="/liked-songs" className={({ isActive }) => (isActive ? 'active' : '')}>
-          Liked Songs <span className="liked-count">({likedSongsCount})</span>
-        </NavLink>
+              <NavLink
+                to="/liked-songs"
+                className={({ isActive }) =>
+                  `${isActive ? "active" : ""} linkColor`
+                }
+              >
+                Liked Songs{" "}
+                <span className="liked-count">({likedSongsCount})</span>
+              </NavLink>
             </li>
             <li>
               <i className="fa-solid fa-headphones"></i>
@@ -68,6 +73,6 @@ export default function Left({ likedSongsCount }) {
         {/* Ad Component */}
         {!isCollapsed && <Ade />}
       </div>
-    </section>
+    </aside>
   );
 }

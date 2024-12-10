@@ -24,7 +24,7 @@ const Search = ({ onSongSelect, onLike }) => {
             <h3>{song.title}</h3>
             <p>{song.artist}</p>
             <div className="card-actions">
-              <button class="play-btn" onClick={() => onSongSelect(song)}>Play</button>
+              <button className="play-btn" onClick={() => onSongSelect(song)}>Play</button>
               <button onClick={() => onLike(song)} className="favorite-btn">
                 ❤️
               </button>
