@@ -1,7 +1,7 @@
 /* Global layout */
 .app {
   display: flex;
-  gap: 1em;
+  gap: 3em;
 }
 
 /* Main content area */

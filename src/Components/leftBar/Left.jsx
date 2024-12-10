@@ -3,8 +3,10 @@ import "./left.css";
 import Ade from "../leftBar/Ad/Ade";
 import Searchbar from "./SearchBar/Searchbar";
 import { Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-export default function Left() {
+
+export default function Left({ likedSongsCount }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleSidebar = () => {
@@ -30,7 +32,7 @@ export default function Left() {
             src={
               isCollapsed
                 ? "/public/Images/Collased logo.png" // Logo for collapsed sidebar
-                : "/public/Images/main_logo.png"  // Logo for expanded sidebar
+                : "/public/Images/main_logo.png" // Logo for expanded sidebar
             }
             alt="Logo"
           />
@@ -50,13 +52,13 @@ export default function Left() {
             </li>
             <li>
               <i className="fa-solid fa-heart"></i>
-              <Link className="linkColor" to="/favorites">
-                Favorite
-              </Link>
+              <NavLink to="/liked-songs" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Liked Songs <span className="liked-count">({likedSongsCount})</span>
+        </NavLink>
             </li>
             <li>
               <i className="fa-solid fa-headphones"></i>
-              <Link className="linkColor" to="/favorites">
+              <Link className="linkColor" to="/">
                 PlayList
               </Link>
             </li>
